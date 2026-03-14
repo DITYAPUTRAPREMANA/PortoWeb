@@ -1,0 +1,19 @@
+// Version: 1.0.0
+type Profile__171840502 =
+  {
+    avatarUrl : Text;
+    background : Text;
+    bio : Text;
+    githubUrl : Text;
+    name : Text;
+    owner : Principal;
+    projects : [Project__171589934];
+    socialMediaLinks : [SocialMediaLink__318574967];
+    title : Text
+  };
+type Project__171589934 =
+  {description : Text; projectUrl : Text; techStack : [Text]; title : Text};
+type SocialMediaLink__318574967 = {platform : Text; url : Text};
+actor {
+  stable var profiles : [(Principal, Profile__171840502)]
+};

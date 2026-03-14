@@ -4,9 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowDown, Code2, ExternalLink, Github, Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { SiGithub, SiInstagram, SiLinkedin, SiX } from "react-icons/si";
+import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
-// ─── Sample Data ────────────────────────────────────────────────────────────
 const PROFILE = {
   name: "Alex Developer",
   firstName: "Alex",
@@ -59,35 +58,34 @@ const PROJECTS = [
 const SOCIALS = [
   {
     platform: "GitHub",
-    url: "https://github.com/alexdev",
-    Icon: SiGithub,
-    label: "@alexdev",
+    url: "https://github.com/DITYAPUTRAPREMANA",
+    Icon: FaGithub,
+    label: "@DITYAPUTRAPREMANA",
     hoverClass: "group-hover:text-foreground",
   },
   {
     platform: "LinkedIn",
     url: "https://linkedin.com/in/alexdev",
-    Icon: SiLinkedin,
+    Icon: FaLinkedin,
     label: "Alex Developer",
     hoverClass: "group-hover:text-blue-400",
   },
   {
     platform: "X (Twitter)",
     url: "https://twitter.com/alexdev",
-    Icon: SiX,
+    Icon: FaTwitter,
     label: "@alexdev",
     hoverClass: "group-hover:text-sky-400",
   },
   {
     platform: "Instagram",
     url: "https://instagram.com/alexdev",
-    Icon: SiInstagram,
+    Icon: FaInstagram,
     label: "@alexdev.codes",
     hoverClass: "group-hover:text-pink-400",
   },
 ];
 
-// ─── Nav ─────────────────────────────────────────────────────────────────────
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);

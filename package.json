@@ -7,6 +7,9 @@
     "npm": "please use pnpm"
   },
   "scripts": {
+    "dev": "cd src/frontend && DFX_NETWORK=local pnpm vite",
+    "dev:backend": "dfx start --clean --no-open",
+    "deploy": "dfx deploy",
     "build": "pnpm -r --if-present run build",
     "typecheck": "pnpm -r --if-present run typecheck",
     "check": "pnpm -r --if-present run check",

@@ -1,10 +1,9 @@
-import Iter "mo:core/Iter";
 import Order "mo:core/Order";
-import Array "mo:core/Array";
-import Map "mo:core/Map";
+import Array "mo:base/Array";
 import Principal "mo:core/Principal";
+import Text "mo:core/Text";
 
-actor {
+persistent actor {
   // Data Types
   type Project = {
     title : Text;
@@ -49,7 +48,7 @@ actor {
   };
 
   // Storage
-  let profiles = Map.empty<Principal, Profile>();
+  stable var profiles : [(Principal, Profile)] = [];
 
   // Portfolio Management
   public shared ({ caller }) func setPortfolio(
@@ -73,18 +72,29 @@ actor {
       projects;
       socialMediaLinks = links;
     };
-    profiles.add(caller, profile);
-  };
-
-  // Query functions
-  public query ({ caller }) func getPortfolio(user : Principal) : async Profile {
-    switch (profiles.get(user)) {
-      case (?profile) { profile };
-      case (null) { Runtime.trap("User does not exist") };
+    let existing = Array.find<(Principal, Profile)>(profiles, func ((p, _)) { p == caller });
+    switch (existing) {
+      case (?_) {
+        // update
+        profiles := Array.map<(Principal, Profile), (Principal, Profile)>(profiles, func ((p, prof)) {
+          if (p == caller) { (caller, profile) } else { (p, prof) }
+        });
+      };
+      case (null) {
+        profiles := Array.append(profiles, [(caller, profile)]);
+      };
     };
   };
 
-  public query ({ caller }) func getAllPortfolios() : async [Profile] {
-    profiles.values().toArray().sort();
+  // Query functions
+  public query ({ caller = _ }) func getPortfolio(user : Principal) : async ?Profile {
+    switch (Array.find<(Principal, Profile)>(profiles, func ((p, _)) { p == user })) {
+      case (?(_, prof)) { ?prof };
+      case (null) { null };
+    };
+  };
+
+  public query ({ caller = _ }) func getAllPortfolios() : async [Profile] {
+    Array.map<(Principal, Profile), Profile>(profiles, func ((_, prof)) { prof });
   };
 };

@@ -1,0 +1,31 @@
+type SocialMediaLink = 
+ record {
+   platform: text;
+   url: text;
+ };
+type Project = 
+ record {
+   description: text;
+   projectUrl: text;
+   techStack: vec text;
+   title: text;
+ };
+type Profile = 
+ record {
+   avatarUrl: text;
+   background: text;
+   bio: text;
+   githubUrl: text;
+   name: text;
+   owner: principal;
+   projects: vec Project;
+   socialMediaLinks: vec SocialMediaLink;
+   title: text;
+ };
+service : {
+  getAllPortfolios: () -> (vec Profile) query;
+  getPortfolio: (user: principal) -> (opt Profile) query;
+  setPortfolio: (name: text, title: text, bio: text, avatarUrl: text,
+   background: text, githubUrl: text, projects: vec Project, links:
+   vec SocialMediaLink) -> ();
+}
