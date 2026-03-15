@@ -678,7 +678,6 @@ function GithubCTASection() {
               </motion.a>
 
               <p className="mt-5 text-xs text-muted-foreground/50 tracking-wide">
-                github.com/alexdev · {PROJECTS.length} public repositories
               </p>
             </div>
           </div>
