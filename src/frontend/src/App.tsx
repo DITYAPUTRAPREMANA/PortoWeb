@@ -6,52 +6,53 @@ import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
+import profileImg from "@/assets/Profile.jpeg";
+
 const PROFILE = {
-  name: "Alex Developer",
-  firstName: "Alex",
+  name: "Dit's Dev",
+  firstName: "Aditya",
   lastName: "Developer",
-  title: "Full-Stack Engineer & UI Craftsman",
-  bio: "I craft digital experiences at the intersection of elegant engineering and thoughtful design. 5+ years turning complex problems into clean, intuitive solutions.",
+  title: "Full-Stack Web2 & Web3 Developer",
+  bio: "As a Full-Stack Web2 & Web3 Developer, I craft digital experiences bridging traditional web technologies with blockchain innovation. 1+ years turning complex problems into clean, intuitive solutions through elegant engineering and thoughtful design.",
   background:
-    "Started my journey as a self-taught developer, building side projects that eventually became real products. I've worked with startups and enterprises alike, always pushing the boundary of what's possible on the web. My philosophy: code should be as beautiful as the interfaces it powers.",
-  avatarUrl: "/assets/generated/developer-avatar.dim_400x400.png",
-  githubUrl: "https://github.com/alexdev",
+    "As an informatics student with a deep passion for computers, I embarked on a self-taught journey into web development and blockchain technology. From a young age, I was fascinated by how computers could solve real-world problems and create interactive experiences. This curiosity led me to dive into learning HTML, CSS, and JavaScript for building websites, while simultaneously exploring the decentralized world of blockchain through platforms like Ethereum and the Internet Computer Protocol (ICP). Through countless hours of online tutorials, coding challenges, and hands-on experimentation, I gradually built my skills from basic static pages to dynamic, full-stack applications.\n\nEventually, I mastered the ability to develop websites and decentralized applications on my own, turning ideas into functional prototypes and real products. This passion drives me to continuously explore the boundaries of technology, whether it's integrating Web2 and Web3 solutions or pushing the limits of what's possible in user interfaces. I've worked on various projects, from AI-powered tools to headless CMS systems, always striving for elegant code that powers beautiful interfaces. My philosophy remains: code should be as beautiful as the interfaces it powers, ensuring that every line contributes to a seamless user experience.",
+  avatarUrl: profileImg,
+  githubUrl: "https://github.com/DITYAPUTRAPREMANA",
   stats: [
-    { value: "5+", label: "Years" },
-    { value: "24", label: "Projects" },
-    { value: "3.2k", label: "Commits" },
-    { value: "12", label: "Clients" },
+    { value: "1+", label: "Years" },
+    { value: "31", label: "Projects" },
+    { value: "100+", label: "Commits" },
   ],
 };
 
 const PROJECTS = [
   {
-    title: "Luminary E-Commerce",
+    title: "Financial AI Agent",
     description:
-      "A full-featured e-commerce platform with real-time inventory, AI-powered recommendations, and seamless checkout. Serving 50,000+ monthly active users.",
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "Redis"],
-    projectUrl: "https://github.com/alexdev/luminary",
+      "An AI-powered financial assistant that provides personalized investment advice and portfolio management using advanced algorithms and real-time market data.",
+    techStack: ["JavaScript"],
+    projectUrl: "https://financial-ai-agent-y8om.vercel.app/",
   },
   {
-    title: "Nexus Chat App",
+    title: "Flight Info Chatbot",
     description:
-      "Real-time messaging application with end-to-end encryption, voice rooms, and collaborative workspaces. Built for teams that value privacy.",
-    techStack: ["React", "Node.js", "WebSocket", "MongoDB", "WebRTC"],
-    projectUrl: "https://github.com/alexdev/nexus-chat",
+      "A Telegram chatbot that delivers real-time flight information, schedules, and updates using Python, Flask, and the Telegram Bot API for seamless user interaction.",
+    techStack: ["python", "flask", "telegram bot api"],
+    projectUrl: "https://t.me/jadwalpenerbangan_bot",
   },
   {
-    title: "Portfolio CMS",
+    title: "Cerpentify",
     description:
-      "A headless CMS built on the Internet Computer Protocol, giving developers full ownership of their portfolio data. Zero downtime, zero hosting cost.",
+      "A headless CMS powered by the Internet Computer Protocol (ICP), enabling developers to own and manage their portfolio data fully. Features zero downtime, no hosting costs, and seamless integration with Motoko, React, TypeScript, and TailwindCSS.",
     techStack: ["Motoko", "React", "ICP", "TypeScript", "TailwindCSS"],
-    projectUrl: "https://github.com/alexdev/portfolio-cms",
+    projectUrl: "https://cerpentify-blmb.vercel.app/",
   },
   {
-    title: "DataViz Dashboard",
+    title: "VeryProof",
     description:
-      "An analytics dashboard that transforms raw data into beautiful, interactive visualizations. Supports 20+ chart types with real-time updates.",
-    techStack: ["Vue 3", "D3.js", "Python", "FastAPI", "ClickHouse"],
-    projectUrl: "https://github.com/alexdev/dataviz",
+      "A comprehensive analytics dashboard built with Vue 3, D3.js, and Vite for stunning data visualizations. Backend powered by Motoko for handling 20+ chart types with real-time data updates and high performance. Project is currently in development.",
+    techStack: ["TypeScript", "tailwindcss", "Vite", "ICP", "Motoko"],
+    projectUrl: "https://very-proof-cjv9.vercel.app/",
   },
 ];
 
@@ -65,23 +66,23 @@ const SOCIALS = [
   },
   {
     platform: "LinkedIn",
-    url: "https://linkedin.com/in/alexdev",
+    url: "https://www.linkedin.com/in/aditya-premana-putra-7b980a285/",
     Icon: FaLinkedin,
-    label: "Alex Developer",
+    label: "Aditya Premana Putra",
     hoverClass: "group-hover:text-blue-400",
   },
   {
     platform: "X (Twitter)",
-    url: "https://twitter.com/alexdev",
+    url: "https://x.com/adityaPrem19944",
     Icon: FaTwitter,
-    label: "@alexdev",
+    label: "@adityaprem",
     hoverClass: "group-hover:text-sky-400",
   },
   {
     platform: "Instagram",
-    url: "https://instagram.com/alexdev",
+    url: "https://www.instagram.com/imdot_1/",
     Icon: FaInstagram,
-    label: "@alexdev.codes",
+    label: "@imdot_1",
     hoverClass: "group-hover:text-pink-400",
   },
 ];
@@ -121,7 +122,7 @@ function Navbar() {
           whileHover={{ scale: 1.03 }}
           data-ocid="nav.link"
         >
-          Alex.dev
+          Dit's Dev
         </motion.a>
 
         <ul className="hidden md:flex items-center gap-1">
@@ -270,7 +271,7 @@ function ProfileSection() {
 
             <motion.p
               variants={itemVariants}
-              className="text-muted-foreground leading-[1.75] text-base mb-8 max-w-md"
+              className="text-foreground/90 leading-[1.75] text-base mb-8 max-w-md"
             >
               {PROFILE.bio}
             </motion.p>
@@ -353,7 +354,7 @@ function ProfileSection() {
                   <img
                     src={PROFILE.avatarUrl}
                     alt={PROFILE.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover scale-110"
                   />
                 </div>
                 <div className="absolute -inset-3 rounded-full border border-primary/15 animate-pulse" />
@@ -377,7 +378,7 @@ function ProfileSection() {
             </div>
             <h2 className="font-display text-xl font-semibold">My Story</h2>
           </div>
-          <p className="text-muted-foreground leading-[1.8] max-w-3xl">
+          <p className="text-foreground/90 leading-[1.8] max-w-3xl">
             {PROFILE.background}
           </p>
         </motion.div>
@@ -694,17 +695,6 @@ function Footer() {
 
   return (
     <footer className="border-t border-border/20 py-8 text-center text-sm text-muted-foreground/50">
-      <p>
-        © {year}. Built with <span className="text-primary">♥</span> using{" "}
-        <a
-          href={utm}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-primary transition-colors duration-200"
-        >
-          caffeine.ai
-        </a>
-      </p>
     </footer>
   );
 }
