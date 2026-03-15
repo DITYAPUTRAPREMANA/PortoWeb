@@ -43,7 +43,7 @@ const PROJECTS = [
   {
     title: "Cerpentify",
     description:
-      "A headless CMS powered by the Internet Computer Protocol (ICP), enabling developers to own and manage their portfolio data fully. Features zero downtime, no hosting costs, and seamless integration with Motoko, React, TypeScript, and TailwindCSS.",
+      "A headless CMS powered by the Internet Computer Protocol (ICP), enabling developers to own and manage their portfolio data fully. Features zero downtime, no hosting costs, and seamless integration with Motoko, React, TypeScript, and TailwindCSS. Project is currently in development.",
     techStack: ["Motoko", "React", "ICP", "TypeScript", "TailwindCSS"],
     projectUrl: "https://cerpentify-blmb.vercel.app/",
   },
